@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # My_app
+    'crm',
+
+    # Default_app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
