@@ -14,3 +14,11 @@ class TaskAdmin(admin.ModelAdmin):
 @admin.register(TaskProgress)
 class TaskProgressAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(TaskStatus)
+class TasksStatusAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(TaskType)
+class TasksTypeAdmin(admin.ModelAdmin):
+    pass
