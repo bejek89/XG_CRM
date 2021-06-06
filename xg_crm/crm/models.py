@@ -8,8 +8,9 @@ class Client(models.Model):
     vat_number = models.CharField(max_length=13)
     contact_person = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=11)
+    e_mail = models.EmailField(blank=True)
     comments = models.CharField(max_length=500, blank=True)
-    vip = models.BooleanField(name='VIP')
+    vip = models.BooleanField()
 
     def __str__(self):
         return str(self.name)
@@ -51,11 +52,12 @@ class TaskProgress(models.Model):
         return str(self.progress_information)
 
 class PhoneCall(models.Model):
-    
-    date = models.DateTimeField(auto_now_add=True)
-    comment = models.CharField(max_length=500)
-    date_next_call = models.DateTimeField()
+
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    comment = models.TextField(max_length=1000, name="Komentarz")
+    date_next_call = models.DateTimeField(auto_now=True, name="Planowana data kolejnej rozmowy")
+
     
     def __str__(self):
         return str(self.client_id)

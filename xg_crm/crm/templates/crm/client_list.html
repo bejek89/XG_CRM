@@ -1,0 +1,28 @@
+{% extends "crm/base.html" %}
+
+{%block title%} CRM - lista klientów {% endblock %}
+
+{% block content %}
+<h1><a href="{% url 'crm:add_client' %}">Dodaj klienta do bazy</a></h1>
+      <table>
+          <tr>
+              <th>Nazwa</th>
+              <th>NIP</th>
+              <th>Osoba Kontaktowa</th>
+              <th>Numer telefonu</th>
+              <th>E-mail</th>
+              <th>VIP</th>
+          </tr>
+          <tr>
+          {% for client in clients %}
+              <td> <a href="{% url 'crm:client_details' client.id %}">{{ client.name }}</a> </td>
+              <td>  {{ client.vat_number }} </td>
+              <td>  {{ client.contact_person }} </td>
+              <td> {{ client.phone_number }} </td>
+              <td> {{ client.e_mail }} </td>
+              <td>  {{ client.vip }} </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+{% endblock %}

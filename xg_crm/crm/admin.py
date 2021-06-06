@@ -22,3 +22,7 @@ class TasksStatusAdmin(admin.ModelAdmin):
 @admin.register(TaskType)
 class TasksTypeAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(PhoneCall)
+class PhoneCall(admin.ModelAdmin):
+    pass

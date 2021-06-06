@@ -1,0 +1,15 @@
+{% extends "crm/base.html" %}
+{%block title%} CRM - nowa rozmowa z {{ client.name }} {% endblock %}
+
+{% block content %}
+
+<p>Przebieg rozmowy</p>
+<p> {{ client }} </p>
+
+
+<form action="{% url 'crm:phone_call' client.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+<button class="btn btn-primary" type="submit">Zapisz</button>
+
+{% endblock content %}

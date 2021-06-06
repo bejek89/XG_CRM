@@ -1,0 +1,13 @@
+{% extends "crm/base.html" %}
+{%block title%} CRM - dodaj nowego klienta {% endblock %}
+
+{% block content %}
+
+<p>Dodaj nowego klienta</p>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+<button class="btn btn-primary" type="submit">Dodaj klienta</button>
+
+{% endblock content %}
