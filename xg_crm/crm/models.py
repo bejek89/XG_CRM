@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 class Client(models.Model):
@@ -54,9 +54,9 @@ class TaskProgress(models.Model):
 class PhoneCall(models.Model):
 
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(default=timezone.now)
     comment = models.TextField(max_length=1000, name="Komentarz")
-    date_next_call = models.DateTimeField(auto_now=True, name="Planowana data kolejnej rozmowy")
+    date_next_call = models.DateTimeField(name="Planowana data kolejnej rozmowy")
 
     
     def __str__(self):
