@@ -17,7 +17,7 @@ class Client(models.Model):
 
 class TaskStatus(models.Model):
 
-    status = models.CharField(max_length=20)
+    status = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         return str(self.status)
@@ -35,7 +35,7 @@ class Task(models.Model):
     task_name = models.CharField(max_length=200)
     task_data = models.DateTimeField(auto_now_add=True)
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
-    task_status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE)
+    task_status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE, null=True)
     comments = models.CharField(max_length=500, blank=True)
 
 
@@ -53,11 +53,32 @@ class TaskProgress(models.Model):
 
 class PhoneCall(models.Model):
 
-    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
     comment = models.TextField(max_length=1000, name="Komentarz")
-    date_next_call = models.DateTimeField(name="Planowana data kolejnej rozmowy")
+    date_next_call = models.DateTimeField(name="Planowana data kolejnej rozmowy", null=True)
 
     
     def __str__(self):
-        return str(self.client_id)
+        return str(self.client)
+
+class Machine(models.Model):
+
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+
+    MARK = (
+        ('PONSSE', 'PONSSE'),
+        ('JOHN_DEERE', 'JOHN DEERE'),
+        ('KOMATSU', 'KOMATSU'),
+        ('INNA', 'INNA'),
+    )
+
+    mark = models.CharField(
+        max_length=10,
+        choices=MARK,
+    )
+
+    model = models.CharField(
+        max_length=20,
+    )
+

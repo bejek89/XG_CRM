@@ -10,5 +10,5 @@ urlpatterns = [
     path('', views.AllClientView.as_view()),
     path('add_client/', views.add_client, name='add_client'),
     path('client_details/<int:client_id>', views.client_details,name='client_details'),
-    path('<int:client_id>/phone_call/', views.phone_call, name='phone_call'),
+    path('phone_call/<int:client_id>', views.new_phone_call, name='phone_call'),
 ]

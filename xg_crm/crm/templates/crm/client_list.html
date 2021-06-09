@@ -12,6 +12,7 @@
               <th>Numer telefonu</th>
               <th>E-mail</th>
               <th>VIP</th>
+              <th>Rozmowa</th>
           </tr>
           <tr>
           {% for client in clients %}
@@ -21,6 +22,7 @@
               <td> {{ client.phone_number }} </td>
               <td> {{ client.e_mail }} </td>
               <td>  {{ client.vip }} </td>
+              <td><a href="{% url 'crm:phone_call' client.id %}"> Rozmowa </a></td>
           </tr>
           {% endfor %}
       </table>
