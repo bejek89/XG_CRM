@@ -1,4 +1,5 @@
 {% extends "crm/base.html" %}
+{% load crispy_forms_tags %}
 {%block title%} CRM - nowa rozmowa z {{ client.name }} {% endblock %}
 
 {% block content %}
@@ -9,7 +10,7 @@
 
 <form action="{% url 'crm:phone_call' client.id %}" method='post'>
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
 <button class="btn btn-primary" type="submit">Zapisz</button>
 
 {% endblock content %}

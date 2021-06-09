@@ -1,13 +1,14 @@
 {% extends "crm/base.html" %}
+{% load crispy_forms_tags %}
 {%block title%} CRM - dodaj nowego klienta {% endblock %}
 
 {% block content %}
 
 <p>Dodaj nowego klienta</p>
 
-<form method="POST">
+<form method="POST" novalidate>
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
 <button class="btn btn-primary" type="submit">Dodaj klienta</button>
 
 {% endblock content %}

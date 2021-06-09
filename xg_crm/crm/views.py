@@ -1,16 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
-from django.urls import reverse
-from django.views.generic.edit import FormView
-from django.http import HttpResponseRedirect, Http404
-from .models import *
 from .forms import *
-
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+from .models import *
+from django.views.generic import ListView
 
 class AllClientView(ListView):
     model = Client
     context_object_name = 'clients'
-
 
 def add_client(request):
     form = ClientForm()
@@ -47,8 +44,3 @@ def new_phone_call(request, client_id):
     return render(request, 'crm/phone_call.html', context)
 
 
-def phone_calls(request, client_id):
-    client = get_object_or_404(Client, id=client_id)
-    phone_calls = client.phonecall_set.order_by('-date')
-    context = {'client': client, 'phone_calls': phone_calls}
-    return render(request, 'crm/client_details.html', context)
