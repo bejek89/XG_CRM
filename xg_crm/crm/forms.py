@@ -9,7 +9,9 @@ class ClientForm(forms.ModelForm):
 class PhoneCallForm(forms.ModelForm):
     class Meta:
         model = PhoneCall
-        fields = '__all__'
+        fields = [
+            'Komentarz',
+        ]
 
 class TaskForm(forms.ModelForm):
     class Meta:
