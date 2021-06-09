@@ -25,8 +25,9 @@ def add_client(request):
 
 
 def client_details(request, client_id):
-    client = Client.objects.get(id=client_id)
-    context = {'client': client}
+    client = get_object_or_404(Client, id=client_id)
+    phone_calls = client.phonecall_set.order_by('-date')
+    context = {'client': client, 'phone_calls':phone_calls}
     return render(request, 'crm/client_details.html', context)
 
 

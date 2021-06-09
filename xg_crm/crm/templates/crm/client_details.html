@@ -19,10 +19,11 @@
       <div class="panel-heading">
         <h3>
           {{ phone_call.date|date:'d M Y H:i'  }}
+          {{ phone_call.owner }}
         </h3>
       </div>
       <div class="panel-body">
-        {{ phone_call.comment|linebreaks }}
+        {{ phone_call.Komentarz|linebreaks }}
       </div>
     </div>
 
