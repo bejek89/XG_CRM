@@ -1,0 +1,14 @@
+{% extends "crm/base.html" %}
+{% load crispy_forms_tags %}
+{%block title%} CRM - Dodaj nowe zadanie {% endblock %}
+
+{% block content %}
+
+<p>Dodaj nowe zadanie</p>
+
+<form method="POST" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+<button class="btn btn-primary" type="submit">Dodaj zadanie</button>
+
+{% endblock content %}

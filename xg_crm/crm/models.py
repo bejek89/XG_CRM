@@ -16,38 +16,39 @@ class Client(models.Model):
     def __str__(self):
         return str(self.name)
 
-class TaskStatus(models.Model):
-
-    status = models.CharField(max_length=20, null=True)
-
-    def __str__(self):
-        return str(self.status)
-
 class TaskType(models.Model):
 
-    type = models.CharField(max_length=20)
+    task_type = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.type)
+        return str(self.task_type)
+
+
+class TaskStatus(models.Model):
+
+    task_status = models.CharField(max_length=100, default='Nowe')
+
+    def __str__(self):
+        return str(self.task_status)
 
 class Task(models.Model):
 
-    task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE)
+    task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE, null=True)
     task_name = models.CharField(max_length=200)
-    task_data = models.DateTimeField(auto_now_add=True)
-    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
+    date = models.DateTimeField(default=timezone.now)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     task_status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE, null=True)
     comments = models.CharField(max_length=500, blank=True)
-
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return str(self.task_name)
 
 class TaskProgress(models.Model):
 
-    task_id = models.ForeignKey(Task, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True)
     progress_information = models.CharField(max_length=500)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return str(self.progress_information)
@@ -63,6 +64,7 @@ class PhoneCall(models.Model):
     
     def __str__(self):
         return str(self.client)
+
 
 class Machine(models.Model):
 

@@ -1,0 +1,29 @@
+{% extends "crm/base.html" %}
+{%block title%} CRM - Lista zadań {% endblock %}
+
+{% block content %}
+
+<table class="table table-dark table-striped">
+          <tr>
+              <th>Nazwa</th>
+              <th>NIP</th>
+              <th>Osoba Kontaktowa</th>
+              <th>Numer telefonu</th>
+              <th>E-mail</th>
+              <th>VIP</th>
+              <th>Informacje</th>
+          </tr>
+          <tr>
+          {% for client in clients %}
+              <td> {{ task.task_type }} </td>
+              <td>  {{ task.client }} </td>
+              <td>  {{ task.task_name }} </td>
+              <td> {{ task.task_status }} </td>
+              <td> {{ task.comments }} </td>
+
+
+          </tr>
+          {% endfor %}
+      </table>
+
+{% endblock content %}

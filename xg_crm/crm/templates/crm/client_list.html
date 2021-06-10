@@ -5,7 +5,8 @@
 {% block content %}
 
 <div class="container-fluid">
-<h1><a href="{% url 'crm:add_client' %}">Dodaj nowego klienta do bazy</a></h1>
+    <a href="{% url 'crm:add_client' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Dodaj nowego klienta do bazy</a>
+    <a href="{% url 'crm:tasks' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Lista zadań</a>
 <h2>{{ clients }}</h2>
       <table class="table table-dark table-striped">
           <tr>
@@ -15,17 +16,17 @@
               <th>Numer telefonu</th>
               <th>E-mail</th>
               <th>VIP</th>
-              <th>Rozmowa</th>
+              <th>Informacje</th>
           </tr>
           <tr>
           {% for client in clients %}
-              <td><a href="{% url 'crm:client_details' client.id %}">{{ client.name }}</a></td>
+              <td> {{ client.name }} </td>
               <td>  {{ client.vat_number }} </td>
               <td>  {{ client.contact_person }} </td>
               <td> {{ client.phone_number }} </td>
               <td> {{ client.e_mail }} </td>
               <td>  {{ client.vip }} </td>
-              <td><a href="{% url 'crm:phone_call' client.id %}"> Rozmowa </a></td>
+              <td><a href="{% url 'crm:client_details' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Szczegóły</a></td>
           </tr>
           {% endfor %}
       </table>
