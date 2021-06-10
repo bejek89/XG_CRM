@@ -25,7 +25,10 @@
               <td>  {{ client.contact_person }} </td>
               <td> {{ client.phone_number }} </td>
               <td> {{ client.e_mail }} </td>
-              <td>  {{ client.vip }} </td>
+              <td> {% if client.vip %}
+                   VIP
+                   {% endif %}
+              </td>
               <td><a href="{% url 'crm:client_details' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Szczegóły</a></td>
           </tr>
           {% endfor %}

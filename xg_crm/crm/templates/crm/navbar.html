@@ -15,10 +15,10 @@
       <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zadania</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'crm:clients' %}">Nowe</a>
+          <a class="dropdown-item" href="{% url 'crm:new_tasks' %}">Nowe</a>
           <a class="dropdown-item" href="{% url 'crm:add_client' %}">W trakcie</a>
           <a class="dropdown-item" href="{% url 'crm:add_client' %}">Zakończone</a>
-          <a class="dropdown-item" href="{% url 'crm:add_client' %}">Wszystkie</a>
+          <a class="dropdown-item" href="{% url 'crm:all_tasks' %}">Wszystkie</a>
     </ul>
   </div>
 </nav>

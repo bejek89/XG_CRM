@@ -35,10 +35,8 @@
       <div class="panel-heading">
         <h3>
             <a href="{% url 'crm:task_progres' task.id %}" >{{ task.date|date:'d M Y H:i'  }}</a>
-          {{ task.task_type }}
-          {{ task.task_name }}
-          {{ task.task_status }}
-
+            Typ: {{ task.type }}
+            Status: {{ task.status }}
         </h3>
       </div>
       <div class="panel-body">

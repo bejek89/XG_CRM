@@ -9,10 +9,12 @@ from django.views.generic import ListView
 class AllClientView(ListView):
     model = Client
     context_object_name = 'clients'
+    ordering = ['-date']
 
 class AllTaskView(ListView):
     model = Task
     context_object_name = 'all_tasks'
+    ordering = ['-date']
 
 def add_client(request):
     form = ClientForm()
@@ -71,10 +73,8 @@ def task_progres(request, task_id):
     context = {'task': task, 'progress': progress}
     return render(request, 'crm/task_progress.html', context)
 
+def new_tasks_list(request):
+    task_list = Task.objects.filter(status=1)
+    context = {'task_list': task_list}
+    return render(request, 'crm/new_tasks_list.html', context)
 
-# def client_details(request, client_id):
-#     client = get_object_or_404(Client, id=client_id)
-#     phone_calls = client.phonecall_set.order_by('-date')
-#     tasks = client.task_set.order_by('-date')
-#     context = {'client': client, 'phone_calls':phone_calls, 'tasks': tasks}
-#     return render(request, 'crm/client_details.html', context)

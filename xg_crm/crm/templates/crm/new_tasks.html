@@ -1,5 +1,5 @@
 {% extends "crm/base.html" %}
-{%block title%} CRM - Lista  wszystkich zadań {% endblock %}
+{%block title%} CRM - Lista nowych zadań {% endblock %}
 
 {% block content %}
 
@@ -13,11 +13,13 @@
           </tr>
           <tr>
           {% for task in all_tasks %}
+            {% if task.status == 'Nowe' %}
               <td> {{ task.type }} </td>
               <td> {{ task.client }} </td>
               <td> {{ task.name }} </td>
               <td> {{ task.date }} </td>
               <td> {{ task.status }} </td>
+            {% endif %}
           </tr>
           {% endfor %}
     </table>

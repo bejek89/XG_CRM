@@ -12,6 +12,7 @@ class Client(models.Model):
     e_mail = models.EmailField(blank=True)
     comments = models.CharField(max_length=500, blank=True)
     vip = models.BooleanField()
+    date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return str(self.name)
@@ -64,25 +65,3 @@ class PhoneCall(models.Model):
     
     def __str__(self):
         return str(self.client)
-
-
-class Machine(models.Model):
-
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
-
-    MARK = (
-        ('PONSSE', 'PONSSE'),
-        ('JOHN_DEERE', 'JOHN DEERE'),
-        ('KOMATSU', 'KOMATSU'),
-        ('INNA', 'INNA'),
-    )
-
-    mark = models.CharField(
-        max_length=10,
-        choices=MARK,
-    )
-
-    model = models.CharField(
-        max_length=20,
-    )
-
