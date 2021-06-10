@@ -1,4 +1,25 @@
+.body {
+margin-top: 25px;
+margin-left: auto;
+margin-right: auto;;
+margin-bottom: 25px;
+}
 
-content {
-font-family: 'Dancing Script', cursive;
+.row {
+margin-top: 25px;
+margin-left: 25px;
+margin-right: 25px;
+margin-bottom: 25px;
+}
+
+.form-group {
+margin-top: 25px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 25px;
+}
+
+.btn-primary {
+margin-left: auto;
+margin-right: auto;
 }

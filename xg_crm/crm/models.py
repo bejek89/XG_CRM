@@ -18,31 +18,31 @@ class Client(models.Model):
 
 class TaskType(models.Model):
 
-    task_type = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.task_type)
+        return str(self.type)
 
 
 class TaskStatus(models.Model):
 
-    task_status = models.CharField(max_length=100, default='Nowe')
+    status = models.CharField(max_length=100, default='NOWE')
 
     def __str__(self):
-        return str(self.task_status)
+        return str(self.status)
 
 class Task(models.Model):
 
-    task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE, null=True)
-    task_name = models.CharField(max_length=200)
+    type = models.ForeignKey(TaskType, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=200)
     date = models.DateTimeField(default=timezone.now)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    task_status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE, null=True)
+    status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE, null=True)
     comments = models.CharField(max_length=500, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return str(self.task_name)
+        return str(self.name)
 
 class TaskProgress(models.Model):
 

@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'crm',
     # Installed_app
     'crispy_forms',
-    'bootstrap_modal_forms',
     # Default_app
     'django.contrib.admin',
     'django.contrib.auth',
