@@ -1,0 +1,21 @@
+{% extends "crm/base.html" %}
+{%block title%} CRM - zadanie: {{ task.name }} {% endblock %}
+
+{% block content %}
+
+{% for task_progres in task_progress %}
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>
+          {{ task_progres|date:'d M Y H:i'  }}
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{ task_progres.information|linebreaks }}
+      </div>
+    </div>
+
+{% endfor %}
+
+{% endblock content %}
