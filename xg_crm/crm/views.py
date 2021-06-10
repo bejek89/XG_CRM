@@ -10,6 +10,10 @@ class AllClientView(ListView):
     model = Client
     context_object_name = 'clients'
 
+class AllTaskView(ListView):
+    model = Task
+    context_object_name = 'all_tasks'
+
 def add_client(request):
     form = ClientForm()
     if request.method == 'POST':
@@ -67,10 +71,7 @@ def task_progres(request, task_id):
     context = {'task': task, 'progress': progress}
     return render(request, 'crm/task_progress.html', context)
 
-def all_tasks(request):
-    tasks = Task.objects.all()
-    context = {'tasks': tasks}
-    return render(request, 'crm/tasks.html', context)
+
 # def client_details(request, client_id):
 #     client = get_object_or_404(Client, id=client_id)
 #     phone_calls = client.phonecall_set.order_by('-date')

@@ -9,7 +9,7 @@
 <div class="center">
 
   <a href="{% url 'crm:phone_call' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Rozmowa</a>
-  <a href="{% url 'crm:task' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Dodaj zadanie</a>
+  <a href="{% url 'crm:all_tasks' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Dodaj zadanie</a>
 
 </div>
 
@@ -34,7 +34,7 @@
 <div class="panel panel-default">
       <div class="panel-heading">
         <h3>
-            <a href="{% url 'crm:task_progres' task.id %}" >{{ task.date|date:'d M Y H:i'  }}</a>
+            <a href="{% url 'crm:all_tasks' task.id %}" >{{ task.date|date:'d M Y H:i'  }}</a>
           {{ task.task_type }}
           {{ task.task_name }}
           {{ task.task_status }}
