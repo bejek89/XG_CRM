@@ -88,14 +88,14 @@ def update_task_status(request, task_id):
     if request.method != 'POST':
         form = UpdateTaskStatus()
     else:
-        form = UpdateTaskStatus(data=request.POST)
+        form = UpdateTaskStatus(instance=task, data=request.POST)
         if form.is_valid():
-            task_progress = form.save(commit=False)
-            task_progress.task = task
+            update_task_status = form.save(commit=False)
+            update_task_status.task = task
             form.save()
             return HttpResponseRedirect(reverse('crm:task_progress', args=[task.id]))
 
-    context = {'task': task, 'form': form, 'progress': progress}
+    context = {'task': task, 'form': form}
     return render(request, 'crm/edit_task_status.html', context)
 
 def task_progress(request, task_id):
