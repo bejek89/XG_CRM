@@ -6,44 +6,42 @@
 <h1> {{ client.name }} </h1>
 <p>Numer telefonu: {{ client.phone_number }} E-mail: {{ client.e_mail }}</p>
 
-<div class="center">
-
-  <a href="{% url 'crm:phone_call' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Rozmowa</a>
-  <a href="{% url 'crm:new_task' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Dodaj zadanie</a>
-
-</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-dark table-striped">
+            <a href="{% url 'crm:phone_call' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Dodaj Rozmowę</a>
+            <p></p>
+            <tr><th>ROZMOWY:</th></tr>
+        </table>
 
 {% for phone_call in phone_calls %}
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>
-          {{ phone_call.date|date:'d M Y H:i'  }}
-          {{ phone_call.owner }}
-        </h3>
-      </div>
-      <div class="panel-body">
-        {{ phone_call.Komentarz|linebreaks }}
-      </div>
-    </div>
+         <table class="table table-dark table-striped">
+             <tr><th>{{ phone_call.date|date:'d M Y H:i'  }}</th></tr>
+             <tr><td>{{ phone_call.comment|linebreaks }}</td></tr>
+         </table>
 
 {% endfor %}
+
+    </div>
+
+    <div class="col-6">
+        <table class="table table-dark table-striped">
+            <a href="{% url 'crm:new_task' client.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Dodaj zadanie</a>
+            <p></p>
+            <tr><th>ZADANIA:</th></tr>
+        </table>
 
 {% for task in tasks %}
 
-<div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>
-            <a href="{% url 'crm:task_progres' task.id %}" >{{ task.date|date:'d M Y H:i'  }}</a>
-            Typ: {{ task.type }}
-            Status: {{ task.status }}
-        </h3>
-      </div>
-      <div class="panel-body">
-        {{ task.comments|linebreaks }}
-      </div>
-    </div>
+        <table class="table table-dark table-striped">
+             <tr><th>{{ task.type  }}  /  {{ task.status  }}  /  {{ task.date|date:'d M Y H:i'  }} <a href="{% url 'crm:task_progress' task.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Szczegóły</button></th></tr>
+             <tr><td>{{ task.comments|linebreaks }}</td></tr>
+         </table>
 
 {% endfor %}
+
+    </div>
+</div>
 
 {% endblock content %}

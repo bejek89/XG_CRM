@@ -67,14 +67,50 @@ def new_task(request, client_id):
     context = {'client': client, 'form': form}
     return render(request, 'crm/task_form.html', context)
 
-def task_progres(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    progress = task.taskprogres_set.order_by('-date')
-    context = {'task': task, 'progress': progress}
-    return render(request, 'crm/task_progress.html', context)
 
 def new_tasks_list(request):
-    task_list = Task.objects.filter(status=1)
-    context = {'task_list': task_list}
+    new_task_list = Task.objects.filter(status='NOWE').order_by('-date')
+    context = {'new_task_list': new_task_list}
     return render(request, 'crm/new_tasks_list.html', context)
 
+def tasks_list_in_progress(request):
+    task_list = Task.objects.filter(status='W TRAKCIE').order_by('-date')
+    context = {'task_list': task_list}
+    return render(request, 'crm/tasks_list_in_progress.html', context)
+
+def ended_tasks_list(request):
+    ended_task_list = Task.objects.filter(status='ZAKOŃCZONE').order_by('-date')
+    context = {'ended_task_list': ended_task_list}
+    return render(request, 'crm/ended_tasks_list.html', context)
+
+def update_task_status(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    if request.method != 'POST':
+        form = UpdateTaskStatus()
+    else:
+        form = UpdateTaskStatus(data=request.POST)
+        if form.is_valid():
+            task_progress = form.save(commit=False)
+            task_progress.task = task
+            form.save()
+            return HttpResponseRedirect(reverse('crm:task_progress', args=[task.id]))
+
+    context = {'task': task, 'form': form, 'progress': progress}
+    return render(request, 'crm/edit_task_status.html', context)
+
+def task_progress(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    progress = task.taskprogress_set.order_by('-date')
+
+    if request.method != 'POST':
+        form = UpdateTaskForm()
+    else:
+        form = UpdateTaskForm(data=request.POST)
+        if form.is_valid():
+            task_progress = form.save(commit=False)
+            task_progress.task = task
+            form.save()
+            return HttpResponseRedirect(reverse('crm:task_progress', args=[task.id]))
+
+    context = {'task': task, 'progress': progress, 'form': form}
+    return render(request, 'crm/task_progress.html', context)

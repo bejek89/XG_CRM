@@ -15,14 +15,6 @@ class TaskAdmin(admin.ModelAdmin):
 class TaskProgressAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(TaskStatus)
-class TasksStatusAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(TaskType)
-class TasksTypeAdmin(admin.ModelAdmin):
-    pass
-
 @admin.register(PhoneCall)
 class PhoneCall(admin.ModelAdmin):
     pass

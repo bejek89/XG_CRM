@@ -1,0 +1,28 @@
+{% extends "crm/base.html" %}
+{%block title%} CRM - Lista  wszystkich zadań {% endblock %}
+
+{% block content %}
+
+<table class="table table-dark table-striped">
+          <tr>
+              <th>Typ</th>
+              <th>Klient</th>
+              <th>Nazwa</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Szczegóły</th>
+          </tr>
+          <tr>
+          {% for task in task_list %}
+              <td> {{ task.type }} </td>
+              <td> {{ task.client }} </td>
+              <td> {{ task.name }} </td>
+              <td> {{ task.date }} </td>
+              <td> {{ task.status }} </td>
+              <td><a href="{% url 'crm:task_progress' task.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Aktualizacja</a></td>
+          </tr>
+          {% endfor %}
+    </table>
+
+
+{% endblock content %}

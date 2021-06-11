@@ -1,0 +1,15 @@
+{% extends "crm/base.html" %}
+{% load static %}
+{%block title%} CRM - Zmień status zadania {% endblock %}
+
+{% block content %}
+
+<h1>{{ task.client }} - {{ task.name }}</h1>
+<h1>Zmień status</h1>
+
+<form method="POST" novalidate>
+    {% csrf_token %}
+    {{ form }}
+<button class="btn btn-primary" type="submit">Zmień status</button>
+
+{% endblock content %}

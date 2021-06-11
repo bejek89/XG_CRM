@@ -1,7 +1,5 @@
-{% load static %}
 
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="/">Strona główna</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
@@ -16,8 +14,8 @@
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zadania</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'crm:new_tasks' %}">Nowe</a>
-          <a class="dropdown-item" href="{% url 'crm:add_client' %}">W trakcie</a>
-          <a class="dropdown-item" href="{% url 'crm:add_client' %}">Zakończone</a>
+          <a class="dropdown-item" href="{% url 'crm:tasks_list_in_progress' %}">W trakcie</a>
+          <a class="dropdown-item" href="{% url 'crm:ended_tasks' %}">Zakończone</a>
           <a class="dropdown-item" href="{% url 'crm:all_tasks' %}">Wszystkie</a>
     </ul>
   </div>

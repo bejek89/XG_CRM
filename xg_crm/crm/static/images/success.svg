@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="success.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg16"
+   version="1.1"
+   viewBox="0 0 45.027847 30.454672"
+   height="30.454672mm"
+   width="45.027847mm">
+  <defs
+     id="defs10">
+    <rect
+       id="rect20"
+       height="81.64286"
+       width="104.32143"
+       y="96.761902"
+       x="74.083336" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="52"
+     inkscape:window-height="839"
+     inkscape:window-width="1465"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="523.66088"
+     inkscape:cx="352.40272"
+     inkscape:zoom="0.35"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-12.593447,-9.6147267)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Warstwa 1">
+    <text
+       clip-path="none"
+       transform="matrix(3.516323,0,0,3.516323,-253.9789,-335.53228)"
+       style="font-size:10.5833px;line-height:1.25;font-family:'Edwardian Script ITC';-inkscape-font-specification:'Edwardian Script ITC, Normal';white-space:pre;shape-inside:url(#rect20);fill:#00ff00;stroke-width:0.284388;"
+       id="text18"
+       xml:space="preserve"><tspan
+         x="74.083984"
+         y="106.29467"><tspan
+           style="fill:#00ff00;stroke-width:0.284388">✔️</tspan></tspan></text>
+  </g>
+</svg>

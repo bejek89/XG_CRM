@@ -4,9 +4,8 @@
 
 {% block content %}
 
-<p>Przebieg rozmowy</p>
-<p> {{ client }} </p>
-
+<h1> {{ client }} </h1>
+<p> Numer telefonu: {{ client.phone_number }} </p>
 
 <form action="{% url 'crm:phone_call' client.id %}" method='post'>
     {% csrf_token %}
